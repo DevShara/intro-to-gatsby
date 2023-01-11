@@ -1,6 +1,5 @@
-const path = require("path");
-
-const postTemplate = path.resolve(`./src/components/post-layout.js`);
+const path = require("path")
+const postTemplate = path.resolve(`./src/components/post-layout.jsx`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -10,12 +9,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allMdx {
         nodes {
           id
+          frontmatter {
+            slug
+          }
           internal {
             contentFilePath
-          }
-          frontmatter {
-            title
-            description
           }
         }
       }
@@ -39,7 +37,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
       // You can use the values in this context in
       // our page layout component
-      context: { node },
+      context: { id: node.id },
     })
   })
 }
