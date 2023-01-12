@@ -34,7 +34,7 @@ const App = () => {
         <StaticImage
           src='../images/ivana-la-61jg6zviI7I-unsplash.jpg'
           alt='a corgi dog sitting on a bed with red paper hearts all over it'
-          placeholder='dominantColor'
+          placeholder='tracedSVG'
           width={300}
           height={300}
         />
