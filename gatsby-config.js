@@ -7,7 +7,20 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-mdx',
+    'gatsby-remark-images',
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
+      },
+    },
 
     {
       resolve: 'gatsby-source-filesystem',
@@ -18,13 +31,25 @@ module.exports = {
     },
 
     {
-      resolve: 'gatsby-plugin-page-creator',
+      resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/posts`,
-      },
-  }
-   
+        name: 'images',
+        path: `${__dirname}/src/images`,
+      }
+    },
 
-    
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+
+    //   {
+    //     resolve: 'gatsby-plugin-page-creator',
+    //     options: {
+    //       path: `${__dirname}/src/posts`,
+    //     },
+    // }
+
+
+
   ],
 }
