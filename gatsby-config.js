@@ -15,10 +15,11 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1200,
+              maxWidth: 800,
             },
           },
         ],
+        extensions: [`.mdx`, `.md`],
       },
     },
 
