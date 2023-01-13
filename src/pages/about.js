@@ -7,7 +7,9 @@ export const query = graphql`
     query CocktailQuery {
       file(name: {eq: "cocktail"}) {
         childImageSharp {
-          gatsbyImageData(placeholder: DOMINANT_COLOR)
+          gatsbyImageData(width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF])
         }
       }
     }

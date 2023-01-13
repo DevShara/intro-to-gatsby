@@ -6,6 +6,27 @@ slug: /second
 
 ---
 
+import {graphql} from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+
+export const query = graphql`
+    query SmashburgerQuery {
+      file(name: {eq: "smashburger"}) {
+        childImageSharp {
+          gatsbyImageData(width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF])
+        }
+      }
+    }
+  `;
+
+  <GatsbyImage
+    image={getImage(props.data.file)}
+    alt='a smashburger on a plate'
+  />
+
 # second post
 
 This is my second blog post
+
