@@ -34,6 +34,7 @@ const Layout = ({
         <Link to="/">{meta.title}</Link>
         <nav>
           <Link to="/about">About</Link>
+          <Link to='/404'>404</Link>
         </nav>
       </header>
       <main className={content}>{children}</main>

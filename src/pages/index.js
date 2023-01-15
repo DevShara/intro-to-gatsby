@@ -22,10 +22,24 @@ const App = () => {
         id
       }
     }
-  }
+
+    allSanityEpisode(limit: 20, filter: {youtubeID: {ne: "null"}}) {
+      nodes {
+        id
+          title
+          guest {
+            name
+          }
+            gatsbyPath(filePath: "/episode/{SanityEpisode.slug__current}")
+        }
+      }
+    }
+
+  
   `);
 
   const posts = data.allMdx.nodes;
+  const episodes = data.allSanityEpisode.nodes;
 
 
   return (
@@ -42,6 +56,7 @@ const App = () => {
       <main>
         <h1>Hello Frontend Masters!</h1>
         <Link to='/about'>About this site</Link>
+
       </main>
       <section>
         <ul>
@@ -54,6 +69,20 @@ const App = () => {
             )
           })}
         </ul>
+      </section>
+
+      <section>
+        <h2>Latest episodes od <em>Learn with Jason</em></h2>
+        <ul>
+          {episodes.map((episode) => (
+            <li key={episode.id}>
+              <Link to={episode.gatsbyPath}>
+                {episode.title} with {episode.guest?.[0]?.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <a href='https://www.learnwithjason.dev/'>Watch all episode of <em>Learn with Jason</em></a>
       </section>
     </Layout>
   )
