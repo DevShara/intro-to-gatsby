@@ -72,7 +72,7 @@ const App = () => {
       </section>
 
       <section>
-        <h2>Latest episodes od <em>Learn with Jason</em></h2>
+        <h2>20 Latest episodes od <em>Learn with Jason</em></h2>
         <ul>
           {episodes.map((episode) => (
             <li key={episode.id}>
